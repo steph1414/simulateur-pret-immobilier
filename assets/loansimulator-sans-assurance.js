@@ -78,7 +78,7 @@
         // Monthly fees field parameters.
         monthlyFeesInputSelector: '.ls-monthlyFeesInput',
         monthlyFeesSliderSelector: '.ls-monthlyFeesSlider',
-        monthlyFeesDefault: 670,
+        monthlyFeesDefault: 632,
         monthlyFeesMin: 100,
         monthlyFeesMax: 5000,
         monthlyFeesStep: 100,
@@ -412,6 +412,7 @@
 
             // Calculate insurance monthly cost.
             var insuranceMonthlyCost = (borrowedCapital * this.fields.insuranceRate.getValue() * 0.01) / 12;
+			var insuranceMonthlyCost = 0;
 
             // Calculate and return desired data.
             var res = {
@@ -451,6 +452,7 @@
 
             // Calculate insurance monthly cost.
             var insuranceMonthlyCost = (borrowedCapital * this.fields.insuranceRate.getValue() * 0.01) / 12;
+			var insuranceMonthlyCost = 0;
 
             // Calculate and return desired data.
             var res = {
