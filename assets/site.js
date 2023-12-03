@@ -170,28 +170,53 @@ $(document).ready(function() {
                     $('#loan-monthly-fees-form .loan-total-amount').text(beautifyNumber(data.loanAmount) + ' €');
                     $('#loan-monthly-fees-form .loan-interest-amount').text(beautifyNumber(data.interestAmount) + ' €');
                     $('#loan-monthly-fees-form .loan-insurance-amount').text(beautifyNumber(data.insuranceAmount) + ' €');
+
+					$('#loan-monthly-fees-form .duration-in-months').text(beautifyNumber(data.loanDurationInMonths) );
+					//$('#loan-monthly-fees-form .interest-rate-for-month').text(data.interestRateForMonth + ' %');
+					$('#loan-monthly-fees-form .monthly-fees-interest').text(beautifyNumber(data.monthlyFeesInterest) + ' €');
+					$('#loan-monthly-fees-form .monthly-insurance-cost').text(beautifyNumber(data.insuranceMonthlyCost) + ' €');
+					$('#loan-monthly-fees-form .monthly-fees-total').text(beautifyNumber(data.monthlyFeesTotal) + ' €');
                 },
             'onError': function(error) {
                     $('#loan-monthly-fees-form .loan-monthly-fees').text('### €');
                     $('#loan-monthly-fees-form .loan-total-amount').text('### €');
                     $('#loan-monthly-fees-form .loan-interest-amount').text('### €');
                     $('#loan-monthly-fees-form .loan-insurance-amount').text('### €');
+					
+					$('#loan-monthly-fees-form .duration-in-months').text('###');
+					//$('#loan-monthly-fees-form .interest-rate-for-month').text('### %');
+					$('#loan-monthly-fees-form .monthly-fees-interest').text('### €');
+					$('#loan-monthly-fees-form .monthly-insurance-cost').text('### €');
+					$('#loan-monthly-fees-form .monthly-fees-total').text('### €');
                 }
         });
 
     // Initialize loan simulator plugin for borrowed capital calculation.
     $('#loan-borrowed-capital-form').loansimulator({
             'onUpdate': function(data) {
-                    $('#loan-borrowed-capital-form .loan-borrowed-capital').text(beautifyNumber(data.borrowedCapital) + ' €');
+                    //$('#loan-borrowed-capital-form .loan-borrowed-capital').text(beautifyNumber(data.borrowedCapital) + ' €');
+					$('#loan-borrowed-capital-form .loan-borrowed-capital').text(beautifyNumber(data.borrowedCapital) + ' €');
                     $('#loan-borrowed-capital-form .loan-total-amount').text(beautifyNumber(data.loanAmount) + ' €');
                     $('#loan-borrowed-capital-form .loan-interest-amount').text(beautifyNumber(data.interestAmount) + ' €');
                     $('#loan-borrowed-capital-form .loan-insurance-amount').text(beautifyNumber(data.insuranceAmount) + ' €');
+					
+					$('#loan-borrowed-capital-form .duration-in-months').text(beautifyNumber(data.loanDurationInMonths) );
+					//$('#loan-borrowed-capital-form .interest-rate-for-month').text(data.interestRateForMonth + ' %');
+					$('#loan-borrowed-capital-form .monthly-fees-interest').text(beautifyNumber(data.monthlyFeesInterest) + ' €');
+					$('#loan-borrowed-capital-form .monthly-insurance-cost').text(beautifyNumber(data.insuranceMonthlyCost) + ' €');
+					$('#loan-borrowed-capital-form .monthly-fees-total').text(beautifyNumber(data.monthlyFeesTotal) + ' €');
                 },
             'onError': function(error) {
                     $('#loan-borrowed-capital-form .loan-borrowed-capital').text('### €');
                     $('#loan-borrowed-capital-form .loan-total-amount').text('### €');
                     $('#loan-borrowed-capital-form .loan-interest-amount').text('### €');
                     $('#loan-borrowed-capital-form .loan-insurance-amount').text('### €');
+					
+					$('#loan-borrowed-capital-form .duration-in-months').text('###');
+					//$('#loan-borrowed-capital-form .interest-rate-for-month').text('### %');
+					$('#loan-borrowed-capital-form .monthly-fees-interest').text('### €');
+					$('#loan-borrowed-capital-form .monthly-insurance-cost').text('### €');
+					$('#loan-borrowed-capital-form .monthly-fees-total').text('### €');
                 }
         });
 

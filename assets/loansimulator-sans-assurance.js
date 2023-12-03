@@ -390,17 +390,27 @@
         // Calculate monthly fees.
         calculateMonthlyFees: function()
         {
+			console.log( '----------------  calculateMonthlyFees  --------------------------------------------------------');
+			
             // Get borrowed capital.
             var borrowedCapital = this.fields.borrowedCapital.getValue();
 
             // Get percentage yearly interest rate and convert it to numeric monthly interest rate.
+            var interestRateForMonth = this.fields.interestRate.getValue() / 1200;
+			//console.log( 'without point', interestRateForMonth );
+            var interestRateForMonth = this.fields.interestRate.getValue() / (12 * 100);
+			//console.log( 'without point', interestRateForMonth );
             var interestRateForMonth = this.fields.interestRate.getValue() / 1200.;
+			console.log( 'interestRateForMonth', interestRateForMonth );
+			
 
             // Get loan duration and convert it from years to months.
             var loanDurationInMonths = this.fields.loanDuration.getValue() * 12.;
+			console.log( 'loanDurationInMonths', loanDurationInMonths );
 
             // Calculate basic monthly fees.
             var monthlyFees = borrowedCapital / loanDurationInMonths;
+			console.log( 'monthlyFees', monthlyFees );
 
             // If interestRateForMonth -> 0
             // then, we use coef -> 1 + loanDurationInMonths * interestRateForMonth.
@@ -408,19 +418,34 @@
             {
                 var coef = Math.pow(1. + interestRateForMonth, loanDurationInMonths);
                 monthlyFees = borrowedCapital * interestRateForMonth * coef / (coef - 1.);
+				console.log( 'monthlyFees in if', monthlyFees );
             }
 
             // Calculate insurance monthly cost.
             var insuranceMonthlyCost = (borrowedCapital * this.fields.insuranceRate.getValue() * 0.01) / 12;
 			var insuranceMonthlyCost = 0;
+			console.log( 'insuranceMonthlyCost', insuranceMonthlyCost );
+			
+			// Calculate and return desired data.
+			var resMonthlyFees     = monthlyFees + insuranceMonthlyCost;
+			var resLoanAmount      = loanDurationInMonths * (monthlyFees + insuranceMonthlyCost) - borrowedCapital;
+			var resInterestAmount  = loanDurationInMonths * monthlyFees - borrowedCapital;
+			var resInsuranceAmount = loanDurationInMonths * insuranceMonthlyCost;
+			var resTotalAmount     = loanDurationInMonths * (monthlyFees + insuranceMonthlyCost);
+
+			console.log( 'resMonthlyFees', resMonthlyFees );
+			console.log( 'resLoanAmount', resLoanAmount );
+			console.log( 'resInterestAmount', resInterestAmount );
+			console.log( 'resInsuranceAmount', resInsuranceAmount );
+			console.log( 'resTotalAmount', resTotalAmount );
 
             // Calculate and return desired data.
             var res = {
-                'monthlyFees': monthlyFees + insuranceMonthlyCost,
-                'loanAmount': loanDurationInMonths * (monthlyFees + insuranceMonthlyCost) - borrowedCapital,
-                'interestAmount': loanDurationInMonths * monthlyFees - borrowedCapital,
-                'insuranceAmount': loanDurationInMonths * insuranceMonthlyCost,
-                'totalAmount': loanDurationInMonths * (monthlyFees + insuranceMonthlyCost)
+                'monthlyFees': resMonthlyFees,
+                'loanAmount': resLoanAmount,
+                'interestAmount': resInterestAmount,
+                'insuranceAmount': resInsuranceAmount,
+                'totalAmount': resTotalAmount
             };
 
             return res;
@@ -430,17 +455,23 @@
         // Calculate monthly fees.
         calculateBorrowedCapital: function()
         {
+			console.log( '----------------  calculateBorrowedCapital  --------------------------------------------------------');
+			
             // Get percentage yearly interest rate and convert it to numeric monthly interest rate.
             var interestRateForMonth = this.fields.interestRate.getValue() / 1200.;
+			console.log( 'interestRateForMonth', interestRateForMonth );
 
             // Get loan duration and convert it from years to months.
             var loanDurationInMonths = this.fields.loanDuration.getValue() * 12.;
+			console.log( 'loanDurationInMonths', loanDurationInMonths );
 
             // Get monthly fees.
             var monthlyFees = this.fields.monthlyFees.getValue();
+			console.log( 'monthlyFees', monthlyFees );
 
             // Calculate basic borrowed capital.
             var borrowedCapital = loanDurationInMonths * monthlyFees;
+			console.log( 'borrowedCapital', borrowedCapital );
 
             // If interestRateForMonth -> 0
             // then, we use coef -> 1 + loanDurationInMonths * interestRateForMonth.
@@ -448,19 +479,35 @@
             {
                 var coef = Math.pow(1. + interestRateForMonth, loanDurationInMonths);
                 borrowedCapital = monthlyFees * (coef - 1.) / (interestRateForMonth * coef);
+				console.log( 'borrowedCapital in if', borrowedCapital );
             }
 
             // Calculate insurance monthly cost.
             var insuranceMonthlyCost = (borrowedCapital * this.fields.insuranceRate.getValue() * 0.01) / 12;
 			var insuranceMonthlyCost = 0;
+			console.log( 'insuranceMonthlyCost', insuranceMonthlyCost );
+			
+			
+			// Calculate and return desired data.
+			var resBorrowedCapital = borrowedCapital - (loanDurationInMonths * insuranceMonthlyCost);
+			var resLoanAmount      = loanDurationInMonths * monthlyFees - borrowedCapital + loanDurationInMonths * insuranceMonthlyCost;
+			var resInterestAmount  = loanDurationInMonths * monthlyFees - borrowedCapital;
+			var resInsuranceAmount = loanDurationInMonths * insuranceMonthlyCost;
+			var resTotalAmount     = loanDurationInMonths * (monthlyFees + insuranceMonthlyCost);
+			
+			console.log( 'resBorrowedCapital', resBorrowedCapital );
+			console.log( 'resLoanAmount', resLoanAmount );
+			console.log( 'resInterestAmount', resInterestAmount );
+			console.log( 'resInsuranceAmount', resInsuranceAmount );
+			console.log( 'resTotalAmount', resTotalAmount );
 
             // Calculate and return desired data.
             var res = {
-                'borrowedCapital': borrowedCapital - (loanDurationInMonths * insuranceMonthlyCost),
-                'loanAmount': loanDurationInMonths * monthlyFees - borrowedCapital + loanDurationInMonths * insuranceMonthlyCost,
-                'interestAmount': loanDurationInMonths * monthlyFees - borrowedCapital,
-                'insuranceAmount': loanDurationInMonths * insuranceMonthlyCost,
-                'totalAmount': loanDurationInMonths * (monthlyFees + insuranceMonthlyCost)
+                'borrowedCapital': resBorrowedCapital,
+                'loanAmount':      resLoanAmount,
+                'interestAmount':  resInterestAmount,
+                'insuranceAmount': resInsuranceAmount,
+                'totalAmount':     resTotalAmount
             };
 
             return res;
