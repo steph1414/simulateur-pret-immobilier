@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+
+    <!-- HTML technical meta data -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- HTML document meta data -->
+    <title>SIMULIMMO - Simulateur de prêt immobilier</title>
+    <meta name="description" content="Simulateur de prêt immobilier">
+
+    <!-- jQuery library -->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- UIkit framework -->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/css/uikit.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.30/js/uikit-icons.min.js"></script>
+
+    <!-- JSX Graph library -->
+    <!-- <link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" /> -->
+    <!-- <script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script> -->
+
+    <!-- JS Social plugin -->
+    <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-flat.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.min.js"></script>
+
+
+    <!-- Style sheet -->
+    <link rel="stylesheet" href="assets/site.css" />
+
+</head>
+
+<body>
+
+
+<!--
+--------------------------------------------------------------------------------
+SECTION SIMULATOR
+--------------------------------------------------------------------------------
+-->
+<a id="anchor-section-simulator"></a>
+<div id="section-simulator" class="uk-section uk-section-secondary">
+
+    <div class="uk-container uk-container-small">
+
+        <h2>Simuler votre emprunt</h2>
+
+        <!-- Accordion -->
+        <ul uk-accordion>
+
+            <!-- Accordion pane -->
+            <li id="loan-monthly-fees-form" class="uk-open">
+                <h3 class="uk-accordion-title uk-heading-bullet uk-heading-divider">Calculez <span class="uk-visible@s">le montant de </span>vos mensualités</h3>
+                <div class="uk-accordion-content uk-margin-medium-bottom" style="display: block !important">
+
+                    <!-- Switcher menu -->
+                    <ul class="uk-tab uk-flex-center uk-child-width-expand" uk-switcher="duration: 350; animation: uk-animation-scale-up;" style="display:none;">
+                        <li><a href="#">Simuler</a></li>
+                    </ul>
+
+                    <!-- Swicther container -->
+                    <div class="uk-switcher uk-margin">
+
+                        <!-- Swicther pane -->
+                        <div class="uk-child-width-1-2@s" uk-grid>
+
+                            <div class="uk-text-small">
+                                <div class="loan-field uk-margin">
+                                    <label for="borrowedCapital">Montant du prêt</label>
+                                    <input class="ls-borrowedCapitalInput uk-input uk-margin-small-top" type="text" id="borrowedCapital">
+                                    <div class="ls-borrowedCapitalSlider"></div>
+                                </div>
+                                <div class="loan-field uk-margin">
+                                    <label for="loanDuration">Durée d'emprunt</label>
+                                    <input class="ls-loanDurationInput uk-input uk-margin-small-top" type="text" id="loanDuration">
+                                    <div class="ls-loanDurationSlider"></div>
+                                </div>
+                                <div class="uk-child-width-1-2 uk-margin" uk-grid>
+                                    <div class="loan-field">
+                                        <label for="interestRate">Taux d'intérêt</label>
+                                        <input class="ls-interestRateInput uk-input uk-margin-small-top" type="text" id="interestRate">
+                                        <div class="ls-interestRateSlider"></div>
+                                    </div>
+                                    <div class="loan-field">
+                                        <label for="insuranceRate">Taux d'assurance</label>
+                                        <input class="ls-insuranceRateInput uk-input uk-margin-small-top" type="text" id="insuranceRate">
+                                        <div class="ls-insuranceRateSlider"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="uk-text-center uk-text-small">
+                                <label>&nbsp;</label>
+                                <div class="uk-card uk-card-small uk-light uk-card-secondary uk-margin-small-top">
+                                    <div class="uk-card-header">
+                                        <h4 class="uk-card-title">Vos mensualités</h4>
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <p class="uk-text-lead uk-text-bold"><span class="loan-monthly-fees">0.00&nbsp;€</span></p>
+                                    </div>
+                                </div>
+                                <p class="uk-text-bold uk-text-uppercase">Coût total du crédit&nbsp;: <span class="loan-total-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-small uk-text-muted">Montant des intérêts&nbsp;: <span class="loan-interest-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-small uk-text-muted">Montant de l'assurance&nbsp;: <span class="loan-insurance-amount">0.00&nbsp;€</span></p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </li>
+
+            <!-- Accordion pane -->
+            <li id="loan-borrowed-capital-form">
+                <h3 class="uk-accordion-title uk-heading-bullet uk-heading-divider">Evaluez votre capacité d'emprunt</h3>
+                <div class="uk-accordion-content uk-margin-medium-bottom" style="display: block !important">
+
+                    <!-- Switcher menu -->
+                    <ul class="uk-tab uk-flex-center uk-child-width-expand" uk-switcher="duration: 350; animation: uk-animation-scale-up;" style="display:none;">
+                        <li><a href="#">Simuler</a></li>
+                    </ul>
+
+                    <!-- Swicther container -->
+                    <div class="uk-switcher uk-margin">
+
+                        <!-- Swicther pane -->
+                        <div class="uk-child-width-1-2@s" uk-grid>
+
+                            <div id="loan-form" class="uk-text-small">
+                                <div class="loan-field uk-margin">
+                                    <label for="monthlyFees">Mensualités</label>
+                                    <input class="ls-monthlyFeesInput uk-input uk-margin-small-top" type="text" id="monthlyFees">
+                                    <div class="ls-monthlyFeesSlider"></div>
+                                </div>
+                                <div class="loan-field uk-margin">
+                                    <label for="loanDuration">Durée d'emprunt</label>
+                                    <input class="ls-loanDurationInput uk-input uk-margin-small-top" type="text" id="loanDuration">
+                                    <div class="ls-loanDurationSlider"></div>
+                                </div>
+                                <div class="uk-child-width-1-2 uk-margin" uk-grid>
+                                    <div class="loan-field">
+                                        <label for="interestRate">Taux d'intérêt</label>
+                                        <input class="ls-interestRateInput uk-input uk-margin-small-top" type="text" id="interestRate">
+                                        <div class="ls-interestRateSlider"></div>
+                                    </div>
+                                    <div class="loan-field">
+                                        <label for="insuranceRate">Taux d'assurance</label>
+                                        <input class="ls-insuranceRateInput uk-input uk-margin-small-top" type="text" id="insuranceRate">
+                                        <div class="ls-insuranceRateSlider"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="uk-text-center uk-text-small">
+                                <label>&nbsp;</label>
+                                <div class="uk-card uk-card-small uk-light uk-card-secondary uk-margin-small-top">
+                                    <div class="uk-card-header">
+                                        <h4 class="uk-card-title">Capacité d'emprunt</h4>
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <p class="uk-text-lead uk-text-bold"><span class="loan-borrowed-capital">0.00&nbsp;€</span></p>
+                                    </div>
+                                </div>
+                                <p class="uk-text-bold uk-text-uppercase">Coût total du crédit&nbsp;: <span class="loan-total-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-small uk-text-muted">Montant des intérêts&nbsp;: <span class="loan-interest-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-small uk-text-muted">Montant de l'assurance&nbsp;: <span class="loan-insurance-amount">0.00&nbsp;€</span></p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </li>
+
+            <!-- Accordion pane -->
+            <li id="loan-loan-duration-form">
+                <h3 class="uk-accordion-title uk-heading-bullet uk-heading-divider">Déterminez la durée de votre prêt</h3>
+                <div class="uk-accordion-content uk-margin-medium-bottom">
+
+                    <!-- Switcher menu -->
+                    <ul class="uk-tab uk-flex-center uk-child-width-expand" uk-switcher="duration: 350; animation: uk-animation-scale-up;" style="display:none;">
+                        <li><a href="#">Simuler</a></li>
+                    </ul>
+
+                    <!-- Swicther container -->
+                    <div class="uk-switcher uk-margin">
+
+                        <!-- Swicther pane -->
+                        <div class="uk-child-width-1-2@s" uk-grid>
+
+                            <div id="loan-form" class="uk-text-small">
+                                <div class="loan-field uk-margin">
+                                    <label for="borrowedCapital">Montant du prêt</label>
+                                    <input class="ls-borrowedCapitalInput uk-input uk-margin-small-top" type="text" id="borrowedCapital">
+                                    <div class="ls-borrowedCapitalSlider"></div>
+                                </div>
+                                <div class="loan-field uk-margin">
+                                    <label for="monthlyFees">Mensualités</label>
+                                    <input class="ls-monthlyFeesInput uk-input uk-margin-small-top" type="text" id="monthlyFees">
+                                    <div class="ls-monthlyFeesSlider"></div>
+                                </div>
+                                <div class="uk-child-width-1-2 uk-margin" uk-grid>
+                                    <div class="loan-field">
+                                        <label for="interestRate">Taux d'intérêt</label>
+                                        <input class="ls-interestRateInput uk-input uk-margin-small-top" type="text" id="interestRate">
+                                        <div class="ls-interestRateSlider"></div>
+                                    </div>
+                                    <div class="loan-field">
+                                        <label for="insuranceRate">Taux d'assurance</label>
+                                        <input class="ls-insuranceRateInput uk-input uk-margin-small-top" type="text" id="insuranceRate">
+                                        <div class="ls-insuranceRateSlider"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="uk-text-center uk-text-small">
+                                <label>&nbsp;</label>
+                                <div class="uk-card uk-card-small uk-light uk-card-secondary uk-margin-small-top">
+                                    <div class="uk-card-header">
+                                        <h4 class="uk-card-title">Durée du prêt</h4>
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <p class="uk-text-lead uk-text-bold"><span class="loan-loan-duration">0.00&nbsp;€</span></p>
+                                    </div>
+                                </div>
+                                <p class="uk-text-bold uk-text-uppercase">Coût total du crédit&nbsp;: <span class="loan-total-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-small uk-text-muted">Montant des intérêts&nbsp;: <span class="loan-interest-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-small uk-text-muted">Montant de l'assurance&nbsp;: <span class="loan-insurance-amount">0.00&nbsp;€</span></p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+</div>
+
+
+
+<!--
+--------------------------------------------------------------------------------
+SCRIPTS
+--------------------------------------------------------------------------------
+-->
+<script type="text/javascript">
+
+    // Initialize social sharing plugin.
+    $(document).ready(function() {
+        $("#social-sharing, #social-sharing-popup").jsSocials({
+            shareIn: "popup",
+            showLabel: false,
+            showCount: false,
+            shares: ["twitter", "facebook", "whatsapp", "email"]
+        });
+    });
+
+    if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent))
+    {
+        // If IE browser, use Babel transpiler because it is not ES6 compliant.
+        document.write('<script type="text/javascript" src="https://unpkg.com/babel-standalone@6/babel.min.js"><\/script>');
+        document.write('<script type="text/babel" src="assets/loansimulator.js"><\/script>');
+        document.write('<script type="text/babel" src="assets/site.js" type="text/babel"><\/script>');
+    }
+    else
+    {
+        document.write('<script type="text/javascript" src="assets/loansimulator.js"><\/script>');
+        document.write('<script type="text/javascript" src="assets/site.js"><\/script>');
+    }
+
+</script>
+
+
+</body>
+</html>
