@@ -40,6 +40,13 @@
 
 <body>
 
+<!--
+--------------------------------------------------------------------------------
+HEADER
+--------------------------------------------------------------------------------
+-->
+<a id="anchor-section-home"></a>
+
 
 <!--
 --------------------------------------------------------------------------------
@@ -59,11 +66,13 @@ SECTION SIMULATOR
             <!-- Accordion pane -->
             <li id="loan-monthly-fees-form" class="uk-open">
                 <h3 class="uk-accordion-title uk-heading-bullet uk-heading-divider">Calculez <span class="uk-visible@s">le montant de </span>vos mensualités</h3>
-                <div class="uk-accordion-content uk-margin-medium-bottom" style="display: block !important">
+                <div class="uk-accordion-content uk-margin-medium-bottom">
 
                     <!-- Switcher menu -->
-                    <ul class="uk-tab uk-flex-center uk-child-width-expand" uk-switcher="duration: 350; animation: uk-animation-scale-up;" style="display:none;">
+                    <ul class="uk-tab uk-flex-center uk-child-width-expand" uk-switcher="duration: 350; animation: uk-animation-scale-up;">
                         <li><a href="#">Simuler</a></li>
+                        <li><a href="#">Graphiques</a></li>
+                        <li><a href="#">Détails</a></li>
                     </ul>
 
                     <!-- Swicther container -->
@@ -114,6 +123,16 @@ SECTION SIMULATOR
 
                         </div>
 
+                        <!-- Swicther pane -->
+                        <div class="switcher-placeholder">
+                            <p>TODO</p>
+                        </div>
+
+                        <!-- Swicther pane -->
+                        <div class="switcher-placeholder">
+                            <p>TODO</p>
+                        </div>
+
                     </div>
 
                 </div>
@@ -122,11 +141,13 @@ SECTION SIMULATOR
             <!-- Accordion pane -->
             <li id="loan-borrowed-capital-form">
                 <h3 class="uk-accordion-title uk-heading-bullet uk-heading-divider">Evaluez votre capacité d'emprunt</h3>
-                <div class="uk-accordion-content uk-margin-medium-bottom" style="display: block !important">
+                <div class="uk-accordion-content uk-margin-medium-bottom">
 
                     <!-- Switcher menu -->
-                    <ul class="uk-tab uk-flex-center uk-child-width-expand" uk-switcher="duration: 350; animation: uk-animation-scale-up;" style="display:none;">
+                    <ul class="uk-tab uk-flex-center uk-child-width-expand" uk-switcher="duration: 350; animation: uk-animation-scale-up;">
                         <li><a href="#">Simuler</a></li>
+                        <li><a href="#">Graphiques</a></li>
+                        <li><a href="#">Détails</a></li>
                     </ul>
 
                     <!-- Swicther container -->
@@ -177,6 +198,16 @@ SECTION SIMULATOR
 
                         </div>
 
+                        <!-- Swicther pane -->
+                        <div class="switcher-placeholder">
+                            <p>TODO</p>
+                        </div>
+
+                        <!-- Swicther pane -->
+                        <div class="switcher-placeholder">
+                            <p>TODO</p>
+                        </div>
+
                     </div>
 
                 </div>
@@ -188,8 +219,10 @@ SECTION SIMULATOR
                 <div class="uk-accordion-content uk-margin-medium-bottom">
 
                     <!-- Switcher menu -->
-                    <ul class="uk-tab uk-flex-center uk-child-width-expand" uk-switcher="duration: 350; animation: uk-animation-scale-up;" style="display:none;">
+                    <ul class="uk-tab uk-flex-center uk-child-width-expand" uk-switcher="duration: 350; animation: uk-animation-scale-up;">
                         <li><a href="#">Simuler</a></li>
+                        <li><a href="#">Graphiques</a></li>
+                        <li><a href="#">Détails</a></li>
                     </ul>
 
                     <!-- Swicther container -->
@@ -240,6 +273,16 @@ SECTION SIMULATOR
 
                         </div>
 
+                        <!-- Swicther pane -->
+                        <div class="switcher-placeholder">
+                            <p>TODO</p>
+                        </div>
+
+                        <!-- Swicther pane -->
+                        <div class="switcher-placeholder">
+                            <p>TODO</p>
+                        </div>
+
                     </div>
 
                 </div>
@@ -273,14 +316,12 @@ SCRIPTS
     {
         // If IE browser, use Babel transpiler because it is not ES6 compliant.
         document.write('<script type="text/javascript" src="https://unpkg.com/babel-standalone@6/babel.min.js"><\/script>');
-        document.write('<script type="text/babel" src="assets/loansimulator-sans-assurance.js"><\/script>');
-        // document.write('<script src="http://www.i-creativ.com/simulimmo/assets/loansimulator.js" type="text/babel"><\/script>');
+        document.write('<script type="text/babel" src="assets/loansimulator.js"><\/script>');
         document.write('<script type="text/babel" src="assets/site.js" type="text/babel"><\/script>');
-        // document.write('<script src="http://www.i-creativ.com/simulimmo/assets/site.js" type="text/babel"><\/script>');
     }
     else
     {
-        document.write('<script type="text/javascript" src="assets/loansimulator-sans-assurance.js"><\/script>');
+        document.write('<script type="text/javascript" src="assets/loansimulator.js"><\/script>');
         document.write('<script type="text/javascript" src="assets/site.js"><\/script>');
     }
 

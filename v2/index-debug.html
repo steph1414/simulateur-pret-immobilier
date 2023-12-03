@@ -105,11 +105,20 @@ SECTION SIMULATOR
                                     </div>
                                     <div class="uk-card-body">
                                         <p class="uk-text-lead uk-text-bold"><span class="loan-monthly-fees">0.00&nbsp;€</span></p>
+										<p class="uk-margin-remove uk-text-default">Mensualité (hors assurance) : <span class="monthly-fees-interest uk-text-bold">0.00&nbsp;€</span></p>
+										<p class="uk-margin-remove uk-text-default">Montant de l'assurance : <span class="monthly-insurance-cost">0.00&nbsp;€</span></p>
                                     </div>
                                 </div>
-                                <p class="uk-text-bold uk-text-uppercase">Coût total du crédit&nbsp;: <span class="loan-total-amount">0.00&nbsp;€</span></p>
-                                <p class="uk-margin-small uk-text-muted">Montant des intérêts&nbsp;: <span class="loan-interest-amount">0.00&nbsp;€</span></p>
-                                <p class="uk-margin-small uk-text-muted">Montant de l'assurance&nbsp;: <span class="loan-insurance-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-small-bottom uk-text-bold uk-text-uppercase">Coût total du crédit&nbsp;: <span class="loan-total-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-remove uk-text-muted">Montant des intérêts&nbsp;: <span class="loan-interest-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-remove uk-text-muted">Montant de l'assurance&nbsp;: <span class="loan-insurance-amount">0.00&nbsp;€</span></p>
+								
+                                <p class="uk-margin-small-bottom uk-text-bold uk-text-uppercase">Durée du crédit en mois&nbsp;: <span class="duration-in-months">0</span></p>
+                                <!--<p class="uk-margin-small uk-text-remove">Taux d'intérêt par mois&nbsp;: <span class="interest-rate-for-month">0.00&nbsp;€</span></p>-->
+                                <p class="uk-margin-remove uk-text-muted">Montant des intérêts (par mois)&nbsp;: <span class="monthly-fees-interest">0.00&nbsp;€</span></p>
+								<p class="uk-margin-remove uk-text-muted">Montant de l'assurance (par mois)&nbsp;: <span class="monthly-insurance-cost">0.00&nbsp;€</span></p>
+								<p class="uk-margin-remove uk-text-muted">Montant total (par mois)&nbsp;: <span class="monthly-fees-total">0.00&nbsp;€</span></p>
+
                             </div>
 
                         </div>
@@ -137,9 +146,13 @@ SECTION SIMULATOR
 
                             <div id="loan-form" class="uk-text-small">
                                 <div class="loan-field uk-margin">
-                                    <label for="monthlyFees">Mensualités</label>
+                                    <label for="monthlyFees">Mensualité (hors assurance)</label>
                                     <input class="ls-monthlyFeesInput uk-input uk-margin-small-top" type="text" id="monthlyFees">
                                     <div class="ls-monthlyFeesSlider"></div>
+                                </div>
+                                <div class="loan-field uk-margin">
+                                    <label for="monthlyFees">Mensualité (assurance comprise)</label>
+                                    <div class="uk-input uk-margin-small-top"><span class="monthly-fees-total">0.00&nbsp;€</span></div>
                                 </div>
                                 <div class="loan-field uk-margin">
                                     <label for="loanDuration">Durée d'emprunt</label>
@@ -170,9 +183,16 @@ SECTION SIMULATOR
                                         <p class="uk-text-lead uk-text-bold"><span class="loan-borrowed-capital">0.00&nbsp;€</span></p>
                                     </div>
                                 </div>
-                                <p class="uk-text-bold uk-text-uppercase">Coût total du crédit&nbsp;: <span class="loan-total-amount">0.00&nbsp;€</span></p>
-                                <p class="uk-margin-small uk-text-muted">Montant des intérêts&nbsp;: <span class="loan-interest-amount">0.00&nbsp;€</span></p>
-                                <p class="uk-margin-small uk-text-muted">Montant de l'assurance&nbsp;: <span class="loan-insurance-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-small-bottom uk-text-bold uk-text-uppercase">Coût total du crédit&nbsp;: <span class="loan-total-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-remove uk-text-muted">Montant des intérêts&nbsp;: <span class="loan-interest-amount">0.00&nbsp;€</span></p>
+                                <p class="uk-margin-remove uk-text-muted">Montant de l'assurance&nbsp;: <span class="loan-insurance-amount">0.00&nbsp;€</span></p>
+								
+                                <p class="uk-margin-small-bottom uk-text-bold uk-text-uppercase">Durée du crédit en mois&nbsp;: <span class="duration-in-months">0</span></p>
+                                <!--<p class="uk-margin-remove uk-text-muted">Taux d'intérêt par mois&nbsp;: <span class="interest-rate-for-month">0.00&nbsp;€</span></p>-->
+                                <p class="uk-margin-remove uk-text-muted">Montant des intérêts (par mois)&nbsp;: <span class="monthly-fees-interest">0.00&nbsp;€</span></p>
+								<p class="uk-margin-remove uk-text-muted">Montant de l'assurance (par mois)&nbsp;: <span class="monthly-insurance-cost">0.00&nbsp;€</span></p>
+								<p class="uk-margin-remove uk-text-muted">Montant total (par mois)&nbsp;: <span class="monthly-fees-total">0.00&nbsp;€</span></p>
+								
                             </div>
 
                         </div>
